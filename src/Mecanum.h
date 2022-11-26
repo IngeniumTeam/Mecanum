@@ -9,7 +9,9 @@
 class Mecanum
 {
     public:
-        Mecanum();
-        Motor motors[2][2] = { { Motor(2, 3), Motor(4, 5) }, { Motor(6, 7), Motor(8, 9) } };
+        Mecanum(uint8_t leftTop1, uint8_t leftTop2, uint8_t leftBottom1, uint8_t leftBottom2, uint8_t rightTop1, uint8_t rightTop2, uint8_t rightBottom1, uint8_t rightBottom2);
+        Motor motors[2][2] = { { Motor(0, 0), Motor(0, 0) }, { Motor(0, 0), Motor(0, 0) } };
+        void forward(int speed);
+        void backward(int speed);
         void stop();
 };

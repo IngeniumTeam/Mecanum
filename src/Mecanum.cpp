@@ -24,12 +24,28 @@ void Mecanum::forward(int speed)
     motors[Right][Bottom].forward(speed);
 }
 
+void Mecanum::forward(int speed, int duration)
+{
+    motors[Left][Top].forward(speed, duration);
+    motors[Left][Bottom].forward(speed, duration);
+    motors[Right][Top].forward(speed, duration);
+    motors[Right][Bottom].forward(speed, duration);
+}
+
 void Mecanum::backward(int speed)
 {
     motors[Left][Top].backward(speed);
     motors[Left][Bottom].backward(speed);
     motors[Right][Top].backward(speed);
     motors[Right][Bottom].backward(speed);
+}
+
+void Mecanum::backward(int speed, int duration)
+{
+    motors[Left][Top].backward(speed, duration);
+    motors[Left][Bottom].backward(speed, duration);
+    motors[Right][Top].backward(speed, duration);
+    motors[Right][Bottom].backward(speed, duration);
 }
 
 void Mecanum::stop()

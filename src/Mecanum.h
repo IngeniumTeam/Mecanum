@@ -15,6 +15,8 @@ class Mecanum
                 uint8_t in4_1, uint8_t in4_2, uint8_t pwm4, uint8_t offset4, uint8_t standBy2, int min = 0, int max = 255);
         Motor motors[2][2] = { { Motor(0, 0, 0, 0, 0), Motor(0, 0, 0, 0, 0) }, { Motor(0, 0, 0, 0, 0), Motor(0, 0, 0, 0, 0) } };
         void forward(int speed);
+        void forward(int speed, int duration);
         void backward(int speed);
+        void backward(int speed, int duration);
         void stop();
 };

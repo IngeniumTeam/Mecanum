@@ -8,7 +8,7 @@
 Mecanum::Mecanum(   uint8_t in1_1, uint8_t in1_2, uint8_t pwm1, uint8_t offset1,
                     uint8_t in2_1, uint8_t in2_2, uint8_t pwm2, uint8_t offset2, uint8_t standBy1,
                     uint8_t in3_1, uint8_t in3_2, uint8_t pwm3, uint8_t offset3,
-                    uint8_t in4_1, uint8_t in4_2, uint8_t pwm4, uint8_t offset4, uint8_t standBy2, int min = 0 int max = 255)
+                    uint8_t in4_1, uint8_t in4_2, uint8_t pwm4, uint8_t offset4, uint8_t standBy2, int min = 0, int max = 255)
 {
     motors[Left][Top]       = Motor(in1_1, in1_2, pwm1, offset1, standBy1, min, max);
     motors[Left][Bottom]    = Motor(in2_1, in2_2, pwm2, offset2, standBy1, min, max);

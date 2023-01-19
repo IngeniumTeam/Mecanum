@@ -18,9 +18,13 @@ public:
 	void forward(int speed, int duration);
 	void backward(int speed);
 	void backward(int speed, int duration);
+	void move(int speed);
+	void move(int speed, int duration);
 	void stop();
+	void sideway(int speed);
 	void sidewayLeft(int speed);
 	void sidewayRight(int speed);
+	void diagonal(int speed);
 	void diagonalForward(int speed);
 	void diagonalBackward(int speed);
 };
@@ -44,6 +48,15 @@ public:
 	{
 		mecanum.motors[side][0].backward(speed);
 		mecanum.motors[side][1].backward(speed);
+	}
+	void move (int speed)
+	{
+		if (speed > 0)
+			forward(speed);
+		if (speed == 0)
+			stop();
+		if (speed < 0)
+			backward(speed);
 	}
 	void stop()
 	{

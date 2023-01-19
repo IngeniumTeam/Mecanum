@@ -48,12 +48,40 @@ void Mecanum::backward(int speed, int duration)
     motors[Right][Bottom].backward(speed, duration);
 }
 
+void Mecanum::move(int speed)
+{
+    if (speed > 0)
+        forward(speed);
+    if (speed == 0)
+        stop();
+    if (speed < 0)
+        backward(speed);
+}
+
+void Mecanum::move(int speed, int duration)
+{
+    if (speed > 0)
+        forward(speed, duration);
+    if (speed == 0)
+        stop();
+    if (speed < 0)
+        backward(speed, duration);
+}
+
 void Mecanum::stop()
 {
     motors[Left][Top].stop();
     motors[Left][Bottom].stop();
     motors[Right][Top].stop();
     motors[Right][Bottom].stop();
+}
+
+void Mecanum::sideway(int speed)
+{
+    if (speed > 0)
+        sidewayRight(speed);
+    if (speed < 0)
+        sidewayLeft(speed);
 }
 
 void Mecanum::sidewayLeft(int speed)
@@ -70,6 +98,14 @@ void Mecanum::sidewayRight(int speed)
     motors[Left][Bottom].backward(speed);
     motors[Right][Top].forward(speed);
     motors[Right][Bottom].backward(speed);
+}
+
+void Mecanum::diagonal(int speed)
+{
+    if (speed > 0)
+        diagonalForward(speed);
+    if (speed < 0)
+        diagonalBackward(speed);
 }
 
 void Mecanum::diagonalForward(int speed)

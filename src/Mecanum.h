@@ -12,7 +12,8 @@ public:
 	Mecanum(uint8_t in1_1, uint8_t in1_2, uint8_t pwm1, uint8_t offset1,
 			uint8_t in2_1, uint8_t in2_2, uint8_t pwm2, uint8_t offset2, uint8_t standBy1,
 			uint8_t in3_1, uint8_t in3_2, uint8_t pwm3, uint8_t offset3,
-			uint8_t in4_1, uint8_t in4_2, uint8_t pwm4, uint8_t offset4, uint8_t standBy2, int min = 0, int max = 255);
+			uint8_t in4_1, uint8_t in4_2, uint8_t pwm4, uint8_t offset4, uint8_t standBy2,
+			int fromMin = 0, int fromMax = 1023, int toMin = 0, int toMax = 255);
 	Motor motors[2][2] = {{Motor(0, 0, 0, 0, 0), Motor(0, 0, 0, 0, 0)}, {Motor(0, 0, 0, 0, 0), Motor(0, 0, 0, 0, 0)}};
 	void forward(int speed);
 	void forward(int speed, int duration);
@@ -24,43 +25,11 @@ public:
 	void sideway(int speed);
 	void sidewayLeft(int speed);
 	void sidewayRight(int speed);
-	void diagonal(int speed);
-	void diagonalForward(int speed);
-	void diagonalBackward(int speed);
-};
-
-class Mecaside
-{
-public:
-	Mecaside(int iSide, Mecanum &iMecanum)
-	{
-		side = iSide;
-		mecanum = iMecanum;
-	}
-	Mecanum &mecanum;
-	int side = 0;
-	void forward(int speed)
-	{
-		mecanum.motors[side][0].forward(speed);
-		mecanum.motors[side][1].forward(speed);
-	}
-	void backward(int speed)
-	{
-		mecanum.motors[side][0].backward(speed);
-		mecanum.motors[side][1].backward(speed);
-	}
-	void move (int speed)
-	{
-		if (speed > 0)
-			forward(speed);
-		if (speed == 0)
-			stop();
-		if (speed < 0)
-			backward(speed);
-	}
-	void stop()
-	{
-		mecanum.motors[side][0].stop();
-		mecanum.motors[side][1].stop();
-	}
+	void diagonal(int xSpeed, int ySpeed);
+	void diagonalLeft(int speed);
+	void diagonalLeftForward(int speed);
+	void diagonalLeftBackward(int speed);
+	void diagonalRight(int speed);
+	void diagonalRightForward(int speed);
+	void diagonalRightBackward(int speed);
 };

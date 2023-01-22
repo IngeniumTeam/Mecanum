@@ -20,7 +20,6 @@ public:
     }
     void move(int speed)
     {
-        Serial.println(speed);
         if (speed > 0)
             forward(speed);
         if (speed == 0)

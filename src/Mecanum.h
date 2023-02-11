@@ -14,7 +14,6 @@ public:
 			uint8_t in3_1, uint8_t in3_2, uint8_t pwm3,
 			uint8_t in4_1, uint8_t in4_2, uint8_t pwm4, uint8_t standBy2,
 			int fromMin = 0, int fromMax = 1023, int toMin = 0, int toMax = 255);
-	Motor motors[2][2] = {{Motor(0, 0, 0, 0, 0), Motor(0, 0, 0, 0, 0)}, {Motor(0, 0, 0, 0, 0), Motor(0, 0, 0, 0, 0)}};
 	void forward(int speed);
 	void backward(int speed);
 	void move(int speed);
@@ -29,4 +28,16 @@ public:
 	void diagonalRight(int speed);
 	void diagonalRightForward(int speed);
 	void diagonalRightBackward(int speed);
+	Motor motors[2][2] = {{Motor(0, 0, 0, 0, 0), Motor(0, 0, 0, 0, 0)}, {Motor(0, 0, 0, 0, 0), Motor(0, 0, 0, 0, 0)}};
+};
+
+class Mecaside
+{
+public:
+    Mecaside(int iSide);
+    void forward(int speed);
+    void backward(int speed);
+    void move(int speed);
+    void stop();
+    int side = 0;
 };

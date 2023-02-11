@@ -3,24 +3,21 @@
 
 #define Left 0
 #define Right 1
-#define Top 0
-#define Bottom 1
+#define Front 0
+#define Back 1
 
 class Mecanum
 {
 public:
-	Mecanum(uint8_t in1_1, uint8_t in1_2, uint8_t pwm1, uint8_t offset1,
-			uint8_t in2_1, uint8_t in2_2, uint8_t pwm2, uint8_t offset2, uint8_t standBy1,
-			uint8_t in3_1, uint8_t in3_2, uint8_t pwm3, uint8_t offset3,
-			uint8_t in4_1, uint8_t in4_2, uint8_t pwm4, uint8_t offset4, uint8_t standBy2,
+	Mecanum(uint8_t in1_1, uint8_t in1_2, uint8_t pwm1,
+			uint8_t in2_1, uint8_t in2_2, uint8_t pwm2, uint8_t standBy1,
+			uint8_t in3_1, uint8_t in3_2, uint8_t pwm3,
+			uint8_t in4_1, uint8_t in4_2, uint8_t pwm4, uint8_t standBy2,
 			int fromMin = 0, int fromMax = 1023, int toMin = 0, int toMax = 255);
 	Motor motors[2][2] = {{Motor(0, 0, 0, 0, 0), Motor(0, 0, 0, 0, 0)}, {Motor(0, 0, 0, 0, 0), Motor(0, 0, 0, 0, 0)}};
 	void forward(int speed);
-	void forward(int speed, int duration);
 	void backward(int speed);
-	void backward(int speed, int duration);
 	void move(int speed);
-	void move(int speed, int duration);
 	void stop();
 	void sideway(int speed);
 	void sidewayLeft(int speed);

@@ -80,7 +80,7 @@ void Mecanum::diagonal(int xSpeed, int ySpeed)
     if (xSpeed > 0)
         diagonalLeft(ySpeed);
     if (xSpeed < 0)
-        diagonalRight(ySpeed);
+        diagonalRight(-ySpeed);
 }
 
 void Mecanum::diagonalLeft(int speed)
@@ -88,7 +88,7 @@ void Mecanum::diagonalLeft(int speed)
     if (speed > 0)
         diagonalLeftForward(speed);
     if (speed < 0)
-        diagonalLeftBackward(speed);
+        diagonalLeftBackward(-speed);
 }
 
 void Mecanum::diagonalRight(int speed)
@@ -96,7 +96,7 @@ void Mecanum::diagonalRight(int speed)
     if (speed > 0)
         diagonalRightForward(speed);
     if (speed < 0)
-        diagonalRightBackward(speed);
+        diagonalRightBackward(-speed);
 }
 
 void Mecanum::diagonalLeftForward(int speed)

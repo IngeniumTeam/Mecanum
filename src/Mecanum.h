@@ -30,14 +30,3 @@ public:
 	void diagonalRightBackward(int speed);
 	Motor motors[2][2] = {{Motor(0, 0, 0, 0, 0), Motor(0, 0, 0, 0, 0)}, {Motor(0, 0, 0, 0, 0), Motor(0, 0, 0, 0, 0)}};
 };
-
-class Mecaside
-{
-public:
-    Mecaside(int iSide);
-    void forward(int speed);
-    void backward(int speed);
-    void move(int speed);
-    void stop();
-    int side = 0;
-};

@@ -62,17 +62,17 @@ void Mecanum::sideway(int speed)
 void Mecanum::sidewayLeft(int speed)
 {
     motors[Left][Front].backward(speed);
-    motors[Right][Front].backward(speed);
     motors[Left][Back].forward(speed);
-    motors[Right][Back].forward(speed);
+    motors[Right][Front].forward(speed);
+    motors[Right][Back].backward(speed);
 }
 
 void Mecanum::sidewayRight(int speed)
 {
     motors[Left][Front].forward(speed);
-    motors[Right][Front].forward(speed);
     motors[Left][Back].backward(speed);
-    motors[Right][Back].backward(speed);
+    motors[Right][Front].backward(speed);
+    motors[Right][Back].forward(speed);
 }
 
 void Mecanum::diagonal(int xSpeed, int ySpeed)

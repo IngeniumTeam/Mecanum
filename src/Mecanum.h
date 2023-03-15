@@ -28,5 +28,5 @@ public:
 	void diagonalRight(int speed);
 	void diagonalRightForward(int speed);
 	void diagonalRightBackward(int speed);
-	Motor motors[2][2] = {{Motor(0, 0, 0, 0, 0), Motor(0, 0, 0, 0, 0)}, {Motor(0, 0, 0, 0, 0), Motor(0, 0, 0, 0, 0)}};
+	Motor motors[2][2] = {{Motor(0, 0, 0, 0), Motor(0, 0, 0, 0)}, {Motor(0, 0, 0, 0), Motor(0, 0, 0, 0)}};
 };

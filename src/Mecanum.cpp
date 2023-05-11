@@ -80,7 +80,7 @@ void Mecanum::diagonal(int xSpeed, int ySpeed)
     if (xSpeed > 0)
         diagonalLeft(ySpeed);
     if (xSpeed < 0)
-        diagonalRight(-ySpeed);
+        diagonalRight(ySpeed);
 }
 
 void Mecanum::diagonalLeft(int speed)
@@ -101,21 +101,29 @@ void Mecanum::diagonalRight(int speed)
 
 void Mecanum::diagonalLeftForward(int speed)
 {
-    motors[Left][Front].forward(speed);
-    motors[Left][Back].stop();
-    motors[Right][Front].stop();
-    motors[Right][Back].forward(speed);
-}
-
-void Mecanum::diagonalRightForward(int speed)
-{
     motors[Left][Front].stop();
     motors[Left][Back].forward(speed);
     motors[Right][Front].forward(speed);
     motors[Right][Back].stop();
 }
 
+void Mecanum::diagonalRightForward(int speed)
+{
+    motors[Left][Front].forward(speed);
+    motors[Left][Back].stop();
+    motors[Right][Front].stop();
+    motors[Right][Back].forward(speed);
+}
+
 void Mecanum::diagonalLeftBackward(int speed)
+{
+    motors[Left][Front].stop();
+    motors[Left][Back].backward(speed);
+    motors[Right][Front].backward(speed);
+    motors[Right][Back].stop();
+}
+
+void Mecanum::diagonalRightBackward(int speed)
 {
     motors[Left][Front].backward(speed);
     motors[Left][Back].stop();
@@ -123,10 +131,10 @@ void Mecanum::diagonalLeftBackward(int speed)
     motors[Right][Back].backward(speed);
 }
 
-void Mecanum::diagonalRightBackward(int speed)
+void Mecanum::setMaxSpeed(int speed)
 {
-    motors[Left][Front].stop();
-    motors[Left][Back].backward(speed);
-    motors[Right][Front].backward(speed);
-    motors[Right][Back].stop();
+    motors[Left][Front].toMax = speed;
+    motors[Left][Back].toMax = speed;
+    motors[Right][Front].toMax = speed;
+    motors[Right][Back].toMax = speed;
 }

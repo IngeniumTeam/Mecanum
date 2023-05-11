@@ -28,5 +28,6 @@ public:
 	void diagonalRight(int speed);
 	void diagonalRightForward(int speed);
 	void diagonalRightBackward(int speed);
+	void setMaxSpeed(int speed);
 	Motor motors[2][2] = {{Motor(0, 0, 0, 0), Motor(0, 0, 0, 0)}, {Motor(0, 0, 0, 0), Motor(0, 0, 0, 0)}};
 };

@@ -3,11 +3,13 @@
 class Mecaside
 {
 public:
-    Mecaside(int iSide)
+    Mecaside(int iSide, int iMiddle)
     {
         side = iSide;
+        middle = iMiddle;
     }
     int side;
+    int middle;
     void forward(int speed)
     {
         mecanum.motors[side][0].forward(speed);
@@ -20,11 +22,11 @@ public:
     }
     void move(int speed)
     {
-        if (speed > 0)
+        if (speed > middle)
             forward(speed);
-        if (speed == 0)
+        if (speed == middle)
             stop();
-        if (speed < 0)
+        if (speed < middle)
             backward(-speed);
     }
     void stop()

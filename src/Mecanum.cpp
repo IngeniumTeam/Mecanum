@@ -18,14 +18,6 @@ Mecanum::Mecanum(uint8_t in1_1, uint8_t in1_2, uint8_t pwm1,
     motors[Right][Back] = Motor(in4_1, in4_2, pwm4, standBy2, fromMin, fromMax, toMin, toMax);
 }
 
-void Mecanum::changeSpeed(int speed)
-{
-    motors[Left][Front].toMax = speed;
-    motors[Left][Back].toMax = speed;
-    motors[Right][Front].toMax = speed;
-    motors[Right][Back].toMax = speed;
-}
-
 void Mecanum::forward(int speed)
 {
     motors[Left][Front].forward(speed);

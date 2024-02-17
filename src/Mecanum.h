@@ -18,6 +18,7 @@ public:
 	void backward(int speed);
 	void move(int speed);
 	void stop();
+	void brake();
 	void sideway(int speed);
 	void sidewayLeft(int speed);
 	void sidewayRight(int speed);

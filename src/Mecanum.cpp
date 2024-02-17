@@ -51,6 +51,14 @@ void Mecanum::stop()
     motors[Right][Back].stop();
 }
 
+void Mecanum::brake()
+{
+    motors[Left][Front].brake();
+    motors[Left][Back].brake();
+    motors[Right][Front].brake();
+    motors[Right][Back].brake();
+}
+
 void Mecanum::sideway(int speed)
 {
     if (speed > 0)
